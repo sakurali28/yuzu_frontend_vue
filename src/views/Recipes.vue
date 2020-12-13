@@ -19,10 +19,21 @@
       <p>{{ recipe.cooktime }} minutes</p>
       <p>{{ recipe.ingredient }}</p>
       <p>{{ recipe.direction }}</p>
-      <br><br>
+      <button v-on:click="showRecipe(recipe)">more info!</button>
     </div>
 
-    
+    <dialog id="recipe-details">
+      <form method="dialog">
+        <p>Title: <input type="text" v-model="currentRecipe.title"></p>
+        <p>Image: <input type="text" v-model="currentRecipe.image"></p>
+        <p>Cooktime: <input type="text" v-model="currentRecipe.cooktime"></p>
+        <p>Ingredient: <input type="text" v-model="currentRecipe.ingredient"></p>
+        <p>Direction: <input type="text" v-model="currentRecipe.ingredient"></p>
+        <button v-on:click="updateRecipe(currentRecipe)">update</button>
+        <button v-on:click="destroyRecipe(currentRecipe)">delete</button>
+        <button>close</button>
+      </form>
+    </dialog>
 
   </div>
 </template>
@@ -70,8 +81,7 @@ export default {
         cooktime: this.newRecipeCooktime,
         ingredient: this.newRecipeIngredient,
         direction: this.newRecipeDirection,
-      }
-
+      };
       axios
         .post("/api/recipes", params)
         .then(response => {
@@ -80,7 +90,35 @@ export default {
         });
     },
 
+    showRecipe: function(recipe) {
+      this.currentRecipe = recipe;
+      document.querySelector("#recipe-details").showModal();
+    },
+    
+    updateRecipe: function(recipe) {
+      var params = {
+        title: recipe.title,
+        image: recipe.image,
+        cooktime: recipe.cooktime,
+        ingredient: recipe.ingredient,
+        direction: recipe.direction,
+      };
+      axios
+        .patch("/api/recipes/" + recipe.id, params)
+        .then(response => {
+          console.log("updated!", response.data);
+        });
+    },
 
+    destroyRecipe: function(recipe) {
+      axios
+        .delete("/api/recipes/" + recipe.id)
+        .then(response => {
+          console.log("deleted!", response.data);
+          var index = this.recipes.indexOf(recipe);
+          this.recipes.splice(index, 1);
+        });
+    },
   },
 };
 </script>
