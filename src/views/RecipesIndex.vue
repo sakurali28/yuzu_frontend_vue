@@ -1,25 +1,15 @@
 <template>
   <div class="recipes">
-    <h1>Welcome Back!</h1>
-
-    <h2>Create New Recipe</h2>
-    <div>
-      Title: <input type="text" v-model="newRecipeTitle">
-      Image: <input type="text" v-model="newRecipeImage">
-      Cooktime: <input type="text" v-model="newRecipeCooktime">
-      Ingredient: <input type="text" v-model="newRecipeIngredient">
-      Direction: <input type="text" v-model="newRecipeDirection">
-    </div>
-      <button v-on:click="createRecipe()">create!</button>
-
     <h2>Recipes Index</h2>
     <div v-for="recipe in recipes">
       <h2>{{ recipe.title }}</h2>
-      <img v-bind:src="recipe.image">
+      <router-link v-bind:to="`/recipes/+${recipe.id}`">
+        <img v-bind:src="recipe.image">
+      </router-link>
       <p>{{ recipe.cooktime }} minutes</p>
-      <p>{{ recipe.ingredient }}</p>
-      <p>{{ recipe.direction }}</p>
-      <button v-on:click="showRecipe(recipe)">more info!</button>
+      <!-- <p>{{ recipe.ingredient }}</p>
+      <p>{{ recipe.direction }}</p> -->
+      <button v-on:click="showRecipe(recipe)">more info</button>
     </div>
 
     <dialog id="recipe-details">
@@ -35,6 +25,9 @@
       </form>
     </dialog>
 
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
   </div>
 </template>
 
@@ -57,6 +50,7 @@ export default {
       newRecipeIngredient: "",
       newRecipeDirection: "",
       currentRecipe: {},
+      errors: [],
     };
   },
 
@@ -119,6 +113,20 @@ export default {
           this.recipes.splice(index, 1);
         });
     },
+
+    submit: function() {
+      var params = {
+        title: this.newTitle
+      };
+      axios
+        .post("/api/recipes", params)
+        .then(response => {
+          console.log("Success", response.data);
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+        });
+    }
   },
 };
 </script>
