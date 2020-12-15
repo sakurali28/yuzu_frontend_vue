@@ -3,7 +3,7 @@
     <h2>Recipes Index</h2>
     <div v-for="recipe in recipes">
       <h2>{{ recipe.title }}</h2>
-      <router-link v-bind:to="`/recipes/+${recipe.id}`">
+      <router-link v-bind:to="`/recipes/${recipe.id}`">
         <img v-bind:src="recipe.image">
       </router-link>
       <p>{{ recipe.cooktime }} minutes</p>

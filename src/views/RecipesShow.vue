@@ -5,20 +5,9 @@
     <p>{{ recipe.cooktime }} minutes</p>
     <p>Ingredients:<br>{{ recipe.ingredient }}</p>
     <p>Directions:<br>{{ recipe.direction }}</p>
-
-   <!-- <dialog id="recipe-details">
-      <form method="dialog">
-        <p>Title: <input type="text" v-model="recipe.title"></p>
-        <p>Image: <input type="text" v-model="recipe.image"></p>
-        <p>Cooktime: <input type="text" v-model="recipe.cooktime"></p>
-        <p>Ingredient: <input type="text" v-model="recipe.ingredient"></p>
-        <p>Direction: <input type="text" v-model="recipe.ingredient"></p>
-        <button v-on:click="updateRecipe(recipe)">update</button>
-        <button v-on:click="destroyRecipe(recipe)">delete</button>
-        <button>close</button>
-      </form>
-    </dialog> -->
-
+    <router-link v-bind:to="`/recipes/${recipe.id}/edit`">
+      <button>edit</button>
+    </router-link>
   </div>
 </template>
 
