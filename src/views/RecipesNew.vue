@@ -1,5 +1,5 @@
 <template>
-  <div class="new">
+  <div class="new-recipe">
     <form v-on:submit.prevent="submit()">
       <h1>Create a New Recipe</h1>
       <h2>Ooh Exiting!</h2>
@@ -33,9 +33,12 @@
         <input type="text" class="form-control" v-model="direction">
       </div>
 
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-primary" value="submit">
 
     </form>
+    <router-link v-bind:to="'/recipes'">
+      <button>back</button>
+    </router-link>
   </div>
 </template>
 

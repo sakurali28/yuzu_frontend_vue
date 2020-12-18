@@ -21,8 +21,12 @@
         <label>Password confirmation: </label>
         <input type="password" class="form-control" v-model="passwordConfirmation">
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-outline-dark" value="sign up">
+      <router-link v-bind:to="`/`">
+        <button class="btn btn-outline-dark">cancel</button>
+      </router-link>
     </form>
+
   </div>
 </template>
 
