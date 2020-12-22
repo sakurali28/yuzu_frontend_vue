@@ -11,7 +11,8 @@
 
     <h3>Directions: </h3>
     <ul v-for="direction in directions">
-      <li>{{ direction }}</li>
+      <input type="checkbox">
+      {{ direction }}
     </ul>
 
     <h3>Tags:</h3>
@@ -61,6 +62,6 @@ export default {
       });
   },
 
-  // methods: function() {}
+  methods: {}
 };
 </script>
