@@ -1,6 +1,13 @@
 <template>
-  <div class="show-tag">
+  <div class="tag-show">
     <h2>{{ hashtag.tag }}</h2>
+    
+    <div v-for="recipe in hashtag.recipes">
+      <router-link v-bind:to="`/recipes/${recipe.id}`">
+        <h3>{{ recipe.title }}</h3>
+      </router-link>
+    </div>
+
     <router-link v-bind:to="`/hashtags/${hashtag.id}/edit`">
       <button>edit</button>
     </router-link>
@@ -16,7 +23,9 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      hashtag: {}
+      hashtag: {},
+      recipe: {},
+      recipes: [],
     };
   },
 
