@@ -16,27 +16,6 @@
 </template>
 
 <style>
-  body, html {
-    background: url("../assets/home.jpeg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  h1 {
-    font-size: 100px;
-  }
-
-  h1, h2 {
-    color: white;
-    padding-top: 25px;
-    text-align: center;
-  }
-  .buttons {
-    padding: 25px;
-    text-align: center;
-  }
 </style>
 
 <script>
