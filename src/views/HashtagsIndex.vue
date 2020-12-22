@@ -1,15 +1,11 @@
 <template>
-  <div class="hashtags">
+  <div class="hashtag-index">
     <h2>Hashtags Index</h2>
     <div v-for="hashtag in hashtags">
       <router-link v-bind:to="`/hashtags/${hashtag.id}`">
         <p>{{ hashtag.tag }}</p>
       </router-link>
     </div>
-
-    <ul>
-      <li v-for="error in errors">{{ error }}</li>
-    </ul>
   </div>
 </template>
 
@@ -23,24 +19,18 @@ export default {
   data: function() {
     return {
       hashtags: [],
-      errors: [],
     };
   },
 
   created: function() {
-    this.indexHashtags();
-  },
+    axios
+      .get("/api/hashtags")
+      .then(response => {
+        console.log("hashtags index", response);
+        this.hashtags = response.data;
+      });
+},
 
-  methods: {
-    indexHashtags: function () {
-      axios
-        .get("/api/hashtags")
-        .then(response => {
-          this.hashtags = response.data;
-          console.log("All Hashtags", this.hashtags);
-        });
-    },
-
-  },
+  // methods: {},
 };
 </script>
