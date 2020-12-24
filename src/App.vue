@@ -12,6 +12,7 @@
             <a class="nav-link" href="/tags">Tags</a>
             <a class="nav-link" href="/recipes/new">Create a New Recipe (+)</a>
             <a class="nav-link" href="/tags/new">Create a New Tag (+)</a>
+            <a class="nav-link" href="/users">Users</a>
             <a class="nav-link" href="/logout">Logout</a>
           </div>
         </div>
