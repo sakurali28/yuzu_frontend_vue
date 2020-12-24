@@ -11,10 +11,10 @@ import RecipesNew from "../views/RecipesNew.vue";
 import RecipesShow from "../views/RecipesShow.vue";
 import RecipesEdit from "../views/RecipesEdit.vue";
 
-import HashtagsIndex from "../views/HashtagsIndex.vue";
-import HashtagsNew from "../views/HashtagsNew.vue";
-import HashtagsShow from "../views/HashtagsShow.vue";
-import HashtagsEdit from "../views/HashtagsEdit.vue";
+import TagsIndex from "../views/TagsIndex.vue";
+import TagsNew from "../views/TagsNew.vue";
+import TagsShow from "../views/TagsShow.vue";
+import TagsEdit from "../views/TagsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -59,26 +59,25 @@ const routes = [
     name: "recipes-edit",
     component: RecipesEdit,
   },
-
   {
-    path: "/hashtags",
-    name: "hashtags-index",
-    component: HashtagsIndex,
+    path: "/tags",
+    name: "tags-index",
+    component: TagsIndex,
   },
   {
-    path: "/hashtags/new",
-    name: "hashtags-new",
-    component: HashtagsNew,
+    path: "/tags/new",
+    name: "tags-new",
+    component: TagsNew,
   },
   {
-    path: "/hashtags/:id",
-    name: "hashtags-show",
-    component: HashtagsShow,
+    path: "/tags/:id",
+    name: "tags-show",
+    component: TagsShow,
   },
   {
-    path: "/hashtags/:id/edit",
-    name: "hashtags-edit",
-    component: HashtagsEdit,
+    path: "/tags/:id/edit",
+    name: "tags-edit",
+    component: TagsEdit,
   },
 ];
 

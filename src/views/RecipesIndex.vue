@@ -6,11 +6,11 @@
     </div><br>
 
     <div class="card-deck">
-      <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'title')">
+      <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'name')">
         <router-link v-bind:to="`/recipes/${recipe.id}`">
-          <img v-bind:src="`${recipe.image}`" class="card-img-top" v-bind:alt="recipe.title" />
+          <img v-bind:src="`${recipe.image}`" class="card-img-top" v-bind:alt="recipe.name" />
           <div class="card-body">
-            <h5 class="card-title">{{ recipe.title }}</h5>
+            <h5 class="card-title">{{ recipe.name }}</h5>
           </div>
         </router-link>
       </div>

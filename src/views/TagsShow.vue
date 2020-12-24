@@ -1,14 +1,14 @@
 <template>
   <div class="tag-show">
-    <h2>{{ hashtag.tag }}</h2>
+    <h2>{{ tag.name }}</h2>
     
-    <div v-for="recipe in hashtag.recipes">
+    <div v-for="recipe in tag.recipes">
       <router-link v-bind:to="`/recipes/${recipe.id}`">
-        <h3>{{ recipe.title }}</h3>
+        <h3>{{ recipe.name }}</h3>
       </router-link>
     </div>
 
-    <router-link v-bind:to="`/hashtags/${hashtag.id}/edit`">
+    <router-link v-bind:to="`/tags/${tag.id}/edit`">
       <button>edit</button>
     </router-link>
   </div>
@@ -23,7 +23,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      hashtag: {},
+      tag: {},
       recipe: {},
       recipes: [],
     };
@@ -31,15 +31,13 @@ export default {
 
   created: function() {
     axios
-      .get("/api/hashtags/" + this.$route.params.id)
+      .get("/api/tags/" + this.$route.params.id)
       .then(response => {
-        this.hashtag = response.data;
-        console.log("show hashtag", this.hashtag);
+        this.tag = response.data;
+        console.log("show tag", this.tag);
       });
   },
 
-  // methods: function() {
-
-  // }
+  methods: {}
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <div class="new-hashtag">
+  <div class="new-tag">
     <form v-on:submit.prevent="submit()">
-      <h1>Create a New Hashtag</h1>
+      <h1>Create a New Tag</h1>
       <h2>Ooh Exiting!</h2>
 
       <ul>
@@ -16,7 +16,7 @@
       <input type="submit" class="btn btn-primary" value="submit">
 
     </form>
-    <router-link v-bind:to="'/hashtags'">
+    <router-link v-bind:to="'/tags'">
       <button>back</button>
     </router-link>
   </div>
@@ -38,9 +38,9 @@ export default {
         tag: this.tag,
       };
       axios
-        .post("/api/hashtags", params)
+        .post("/api/tags", params)
         .then(response => {
-          this.$router.push("/hashtags");
+          this.$router.push("/tags");
         })
         .catch(error => {
           this.errors = error.response.data.errors;

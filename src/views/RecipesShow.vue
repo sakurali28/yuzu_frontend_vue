@@ -1,8 +1,9 @@
 <template>
   <div class="show">
-    <h2>{{ recipe.title }}</h2>
+    <h2>{{ recipe.name }}</h2>
     <img v-bind:src="recipe.image">
     <p>{{ recipe.cooktime }} minutes</p>
+    <p>{{ recipe.servings }} servings</p>
 
     <h3>Ingredients: </h3>
     <ul v-for="ingredient in ingredients">
@@ -15,10 +16,10 @@
       {{ direction }}
     </ul>
 
-    <h3>Tags:</h3>
-    <div v-for="hashtag in hashtags">
-      <router-link v-bind:to="`/hashtags/${hashtag.id}`">
-        <p>{{ hashtag.tag }}</p>
+    <h3>Tags: </h3>
+    <div v-for="tag in tags">
+      <router-link v-bind:to="`/tags/${tag.id}`">
+        <p>{{ tag.name }}</p>
       </router-link>
     </div>
 
@@ -43,7 +44,7 @@ export default {
       recipe: {},
       ingredients: [],
       directions: [],
-      hashtags: [],
+      tags: [],
     };
   },
 
@@ -52,13 +53,13 @@ export default {
       .get("/api/recipes/" + this.$route.params.id)
       .then(response => {
         this.recipe = response.data;
-        this.ingredients = response.data.ingredient.split(", ");
-        this.directions = response.data.direction.split(", ");
-        this.hashtags = response.data.tag;
+        this.ingredients = response.data.ingredients.split(", ");
+        this.directions = response.data.directions.split(", ");
+        this.tags = response.data.tag;
         console.log("show recipe", this.recipe);
         console.log("show ingredients", this.ingredients);
         console.log("show directions", this.directions);
-        console.log("show hashtags", this.hashtags);
+        console.log("show tags", this.tags);
       });
   },
 

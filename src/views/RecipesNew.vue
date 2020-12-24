@@ -9,8 +9,8 @@
       </ul>
 
       <div class="form-group">
-        <label>Title: </label> 
-        <input type="text" class="form-control" v-model="title">
+        <label>Name: </label> 
+        <input type="text" class="form-control" v-model="name">
       </div>
 
       <div class="form-group">
@@ -19,18 +19,23 @@
       </div>
 
       <div class="form-group">
+        <label>Servings: </label>
+        <input type="text" class="form-control" v-model="servings">
+      </div>
+
+      <div class="form-group">
         <label>Cooktime: </label>
         <input type="text" class="form-control" v-model="cooktime">
       </div>
 
       <div class="form-group">
-        <label>Ingredient </label>
-        <input type="text" class="form-control" v-model="ingredient">
+        <label>Ingredients: </label>
+        <input type="text" class="form-control" v-model="ingredients">
       </div>
 
       <div class="form-group">
-        <label>Direction: </label>
-        <input type="text" class="form-control" v-model="direction">
+        <label>Directions: </label>
+        <input type="text" class="form-control" v-model="directions">
       </div>
 
       <input type="submit" class="btn btn-primary" value="submit">
@@ -48,22 +53,24 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      title: "",
+      name: "",
       image: "",
+      servings: "",
       cooktime: "",
-      ingredient: "",
-      direction: "",
+      ingredients: "",
+      directions: "",
       errors: []
     };
   },
   methods: {
     submit: function() {
       var params = {  
-        title: this.title,
+        name: this.name,
         image: this.image,
+        servings: this.servings,
         cooktime: this.cooktime,
-        ingredient: this.ingredient,
-        direction: this.direction,
+        ingredients: this.ingredients,
+        directions: this.directions,
       };
       axios
         .post("/api/recipes", params)

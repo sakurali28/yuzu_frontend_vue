@@ -3,11 +3,12 @@
     <div>
       <h2>Edit Page</h2>
       <div>
-        Title: <input type="text" v-model="recipe.title"><br>
+        Name: <input type="text" v-model="recipe.name"><br>
         Image: <input type="text" v-model="recipe.image"><br>
+        Servings: <input type="text" v-model="recipe.servings"><br>
         Cooktime: <input type="text" v-model="recipe.cooktime"><br>
-        Ingredient: <input type="text" v-model="recipe.ingredient"><br>
-        Direction: <input type="text" v-model="recipe.direction"><br>
+        Ingredients: <input type="text" v-model="recipe.ingredients"><br>
+        Directions: <input type="text" v-model="recipe.directions"><br>
       </div>
       <button v-on:click="updateRecipe(recipe)">update</button>
       <button v-on:click="destroyRecipe(recipe)">delete</button>
@@ -28,11 +29,12 @@ export default {
   data: function() {
     return {
       recipe: {},
-      title: "",
+      name: "",
       image: "",
+      servings: "",
       cooktime: "",
-      ingredient: "",
-      direction: ""
+      ingredients: "",
+      directions: ""
     };
   },
 
@@ -48,11 +50,12 @@ export default {
   methods: {
     updateRecipe: function(recipe) {
       var params = {
-        title: this.recipe.title,
+        name: this.recipe.name,
         image: this.recipe.image,
+        servings: this.recipe.servings,
         cooktime: this.recipe.cooktime,
-        ingredient: this.recipe.ingredient,
-        direction: this.recipe.direction,
+        ingredients: this.recipe.ingredients,
+        directions: this.recipe.directions,
       };
       axios
         .patch("/api/recipes/" + this.recipe.id, params)
