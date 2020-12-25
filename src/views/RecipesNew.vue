@@ -37,6 +37,10 @@
         <label>Directions: </label>
         <input type="text" class="form-control" v-model="directions">
       </div>
+      <div class="form-group">
+        <label>Notes: </label>
+        <input type="text" class="form-control" v-model="notes">
+      </div>
 
       <input type="submit" class="btn btn-primary" value="submit">
 
@@ -59,6 +63,7 @@ export default {
       cooktime: "",
       ingredients: "",
       directions: "",
+      notes: "",
       errors: []
     };
   },
@@ -71,6 +76,7 @@ export default {
         cooktime: this.cooktime,
         ingredients: this.ingredients,
         directions: this.directions,
+        notes: this.notes,
       };
       axios
         .post("/api/recipes", params)

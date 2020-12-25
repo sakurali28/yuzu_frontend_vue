@@ -37,7 +37,7 @@
     height: 300px;
   }
 
-  input[type=checkbox]:checked + label.strikethrough{
+  input[type=checkbox]:checked + label.strikethrough {
     text-decoration: line-through;
   }
 </style>

@@ -3,7 +3,11 @@
     <h2>Recipes</h2>
     <div>
       Search: <input v-model="titleFilter">
-    </div><br>
+    </div>
+
+    <router-link v-bind:to="`/recipes/new`">
+      <button>+ New Recipe</button>
+    </router-link>
 
     <div class="card-deck">
       <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
@@ -31,7 +35,6 @@
 <script>
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
-
 
 export default {
   mixins: [Vue2Filters.mixin],
