@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="recipes-edit">
     <div>
       <h2>Edit Page</h2>
       <div>
         Name: <input type="text" v-model="recipe.name"><br>
         Image: <input type="text" v-model="recipe.image"><br>
         Servings: <input type="text" v-model="recipe.servings"><br>
-        Cooktime: <input type="text" v-model="recipe.cooktime"><br>
+        Cooktime(minutes): <input type="text" v-model="recipe.cooktime"><br>
         Ingredients: <input type="text" v-model="recipe.ingredients"><br>
         Directions: <input type="text" v-model="recipe.directions"><br>
       </div>

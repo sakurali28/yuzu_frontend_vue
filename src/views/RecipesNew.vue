@@ -24,7 +24,7 @@
       </div>
 
       <div class="form-group">
-        <label>Cooktime: </label>
+        <label>Cooktime(minutes): </label>
         <input type="text" class="form-control" v-model="cooktime">
       </div>
 

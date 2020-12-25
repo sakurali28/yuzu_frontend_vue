@@ -2,8 +2,11 @@
   <div class="show">
     <h2>{{ recipe.name }}</h2>
     <img v-bind:src="recipe.image">
-    <p>{{ recipe.cooktime }} minutes</p>
-    <p>{{ recipe.servings }} servings</p>
+
+    <h3>Cooktime: </h3>
+    <p>{{ recipe.cooktime_conversion }}</p>
+    
+    <!-- <p>{{ recipe.servings }} servings</p> -->
 
     <h3>Ingredients: </h3>
     <ul v-for="ingredient in ingredients">
@@ -13,7 +16,7 @@
     <h3>Directions: </h3>
     <ul v-for="direction in directions">
       <input type="checkbox">
-      {{ direction }}
+      <label class="strikethrough">{{ direction }}</label>
     </ul>
 
     <h3>Tags: </h3>
@@ -32,6 +35,10 @@
 <style>
   img {
     height: 300px;
+  }
+
+  input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
   }
 </style>
 
