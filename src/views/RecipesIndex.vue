@@ -6,7 +6,7 @@
     </div><br>
 
     <div class="card-deck">
-      <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'name')">
+      <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
         <router-link v-bind:to="`/recipes/${recipe.id}`">
           <img v-bind:src="`${recipe.image}`" class="card-img-top" v-bind:alt="recipe.name" />
           <div class="card-body">
