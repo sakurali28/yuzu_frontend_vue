@@ -6,7 +6,7 @@
     <h3>Cooktime: </h3>
     <p>{{ recipe.cooktime_conversion }}</p>
     
-    <!-- <p>{{ recipe.servings }} servings</p> -->
+    <p v-if="recipe.servings">{{ recipe.servings }} servings</p>
 
     <h3>Ingredients: </h3>
     <ul v-for="ingredient in ingredients">
@@ -19,12 +19,20 @@
       <label class="strikethrough">{{ direction }}</label>
     </ul>
 
-    <h3>Tags: </h3>
-    <div v-for="tag in tags">
-      <router-link v-bind:to="`/tags/${tag.id}`">
-        <p>{{ tag.name }}</p>
-      </router-link>
-    </div>
+    <p v-if="recipe.notes">notes: {{ recipe.notes }}</p>
+
+    <!-- <div class="tag">
+      <h3>Tags: </h3>
+      <div v-for="tag in tags">
+        <router-link v-bind:to="`/tags/${tag.id}`">
+          <p>{{ tag.name }}</p>
+        </router-link>
+      </div>
+
+      <form v-on:submit="createRecipeTag()">
+        
+      </form>
+    </div> -->
 
     <router-link v-bind:to="`/recipes/${recipe.id}/edit`">
       <button>edit</button>
@@ -70,6 +78,19 @@ export default {
       });
   },
 
-  methods: {}
+  methods: {
+    createTag: function() {
+      var params = {
+        tag_name: tag,
+        recipe_id: this.recipe.id,
+      };
+      axios
+        .post("/api/recipe_tags", params)
+        .then(response => {
+          this.recipe = response.data,
+          console.log("recipe_tag created", response.data)
+        });
+    }
+  }
 };
 </script>
