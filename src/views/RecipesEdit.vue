@@ -26,22 +26,19 @@
 
       <!-- select from existing tags or create a new one -->
       <div>
-        <button v-on:click="showTagEdit()" v-if="tagEditAppear !== true">Add Tag</button>
-        <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag()">
+        <button v-on:click="showTagEdit()" v-if="tagEditAppear !== true">add Tag</button>
+        <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag(recipe)">
           <div>
             <select v-model="option">
               <option disabled value="">select a tag:</option>
-              <option v-bind:value="`newUserInput`">create new tag</option>
-              <option v-bind:value="`${tag.name}`" v-for="tag in tags">{{ tag.name }}</option>
+              <option v-bind:value="`${tag.id}`" v-for="tag in tags">{{ tag.name }}</option>
             </select>
-            <div v-if="option === 'newUserInput'">
-              Tag: <input type="text" v-model="tagInput" />
-            </div>
-            <div>
-              <button v-on:click="showTagEdit()">Cancel</button>
-            </div>
-            <input type="submit" value="Submit" />
           </div>
+
+          <div>
+            <input type="submit" value="add tag" />
+          </div>
+          <button v-on:click="showTagEdit()">Cancel</button>
         </form>
       </div>
     </div>
@@ -67,7 +64,7 @@ export default {
       tags: [],
       tagEditAppear: false,
       option: "",
-      tagInput: "",
+      tag: {},
 
       recipe: {},
       name: "",
@@ -130,15 +127,14 @@ export default {
     },
 
     createRecipeTag: function() {
-      let tag;
-      if (this.option === "newUserInput") {
-        tag = this.tagInput;
-      } else {
-        tag = this.option;
-      }
+      this.tag = this.option;
+      // tag = tag.id
+      console.log(this.tag);
+      console.log(this.recipe.id);
+
       var params = {
-        recipe_id: this.recipe.id,
-        tag_id: this.tag.id,
+        recipe_id: parseInt(this.recipe.id),
+        tag_id: parseInt(this.tag),
       };
       axios
         .post("/api/recipe_tags", params)
@@ -150,19 +146,18 @@ export default {
         });
     },
     
-    destroyRecipeTag: function(recipe_tag) {
-      var params = {
-        recipe_id: this.recipe.id,
-        tag_id: this.tag.id,
-      };
-      axios
-      // how to find recipe_tag id
-        .delete("/api/recipes_tags/", params)
-        .then(response => {
-          console.log("recipe_tag destroyed", response.data);
-          var index = this.recipes_tags.indexOf(recipe_tag);
-          this.recipes_tags.splice(index, 1);
-        });
+    destroyRecipeTag: function(tag) {
+      // var params = {
+      //   recipe_id: this.recipe.id,
+      //   tag_id: this.tag.id,
+      // };
+      console.log(tag);
+      // console.log(this.recipe);
+      // axios
+      //   .delete("/api/recipe_tags/" + ${tag.recipe_tag.id}, params)
+      //   .then(response => {
+      //     console.log("recipe_tag destroyed", response.data);
+      //   });
     },
   }
 };
