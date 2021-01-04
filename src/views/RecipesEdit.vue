@@ -1,7 +1,7 @@
 <template>
   <div class="recipes-edit">
-    <div>
-      <h2>Edit Page</h2>
+    <div id="recipe-edit">
+      <h2>Edit Recipe</h2>
       <div>
         Name: <input type="text" v-model="recipe.name"><br>
         Image: <input type="text" v-model="recipe.image"><br>
@@ -13,6 +13,41 @@
       <button v-on:click="updateRecipe(recipe)">update</button>
       <button v-on:click="destroyRecipe(recipe)">delete</button>
     </div>
+
+    <div class="tag-edit">
+      <h2>Edit Tags: </h2>
+      <!-- display current tags & delete action -->
+      <div v-for="tag in recipeTag">
+        <router-link v-bind:to="`/tags/${tag.id}`">
+          <p>{{ tag.name }}</p>
+        </router-link>
+        <button v-on:click="destroyRecipeTag(tag)">delete tag</button>
+      </div>
+
+      <!-- select from existing tags or create a new one -->
+      <div>
+        <button v-on:click="showTagEdit()" v-if="tagEditAppear !== true">Add Tag</button>
+        <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag()">
+          <div>
+            <select v-model="option">
+              <option disabled value="">select a tag:</option>
+              <option v-bind:value="`newUserInput`">create new tag</option>
+              <option v-bind:value="`${tag.name}`" v-for="tag in tags">{{ tag.name }}</option>
+            </select>
+            <div v-if="option === 'newUserInput'">
+              Tag: <input type="text" v-model="tagInput" />
+            </div>
+            <div>
+              <button v-on:click="showTagEdit()">Cancel</button>
+            </div>
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <br>
+
     <router-link v-bind:to="`/recipes/${recipe.id}`">
       <button>cancel</button>
     </router-link>
@@ -28,6 +63,12 @@ import axios from "axios";
 export default {
   data: function() {
     return {
+      recipeTag:{},
+      tags: [],
+      tagEditAppear: false,
+      option: "",
+      tagInput: "",
+
       recipe: {},
       name: "",
       image: "",
@@ -43,7 +84,14 @@ export default {
       .get("/api/recipes/" + this.$route.params.id)
       .then(response => {
         this.recipe = response.data;
+        this.recipeTag = response.data.tag;
         console.log("show recipe", this.recipe);
+      });
+    axios
+      .get("/api/tags/")
+      .then(response => {
+        this.tags = response.data;
+        console.log("show tags", this.tags);
       });
   },
 
@@ -73,7 +121,48 @@ export default {
           var index = this.recipes.indexOf(recipe);
           this.recipes.splice(index, 1);
         });
-          this.$router.push("/recipes");
+      this.$router.push("/recipes");
+    },
+
+    showTagEdit: function() {
+      this.tagEditAppear = !(this.tagEditAppear);
+      this.option = "";
+    },
+
+    createRecipeTag: function() {
+      let tag;
+      if (this.option === "newUserInput") {
+        tag = this.tagInput;
+      } else {
+        tag = this.option;
+      }
+      var params = {
+        recipe_id: this.recipe.id,
+        tag_id: this.tag.id,
+      };
+      axios
+        .post("/api/recipe_tags", params)
+        .then(response => {
+          this.recipe = response.data;
+          this.option = "";
+          this.tagEditAppear = false;
+          console.log("recipe_tag created", response.data);
+        });
+    },
+    
+    destroyRecipeTag: function(recipe_tag) {
+      var params = {
+        recipe_id: this.recipe.id,
+        tag_id: this.tag.id,
+      };
+      axios
+      // how to find recipe_tag id
+        .delete("/api/recipes_tags/", params)
+        .then(response => {
+          console.log("recipe_tag destroyed", response.data);
+          var index = this.recipes_tags.indexOf(recipe_tag);
+          this.recipes_tags.splice(index, 1);
+        });
     },
   }
 };

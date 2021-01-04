@@ -14,10 +14,7 @@ import RecipesNew from "../views/RecipesNew.vue";
 import RecipesShow from "../views/RecipesShow.vue";
 import RecipesEdit from "../views/RecipesEdit.vue";
 
-import TagsIndex from "../views/TagsIndex.vue";
-import TagsNew from "../views/TagsNew.vue";
 import TagsShow from "../views/TagsShow.vue";
-import TagsEdit from "../views/TagsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -63,24 +60,9 @@ const routes = [
     component: RecipesEdit,
   },
   {
-    path: "/tags",
-    name: "tags-index",
-    component: TagsIndex,
-  },
-  {
-    path: "/tags/new",
-    name: "tags-new",
-    component: TagsNew,
-  },
-  {
     path: "/tags/:id",
     name: "tags-show",
     component: TagsShow,
-  },
-  {
-    path: "/tags/:id/edit",
-    name: "tags-edit",
-    component: TagsEdit,
   },
   {
     path: "/users",

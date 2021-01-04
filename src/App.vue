@@ -15,8 +15,6 @@
                   <p>{{ tag.name }}</p>
                 </router-link>
               </div>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/tags/new">+ Tag</a>
             </div>
           </li>
           <li class="nav-item">
