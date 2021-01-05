@@ -8,10 +8,6 @@
       </router-link>
     </div>
 
-    <!-- <router-link v-bind:to="`/tags/${tag.id}/edit`">
-      <button>edit</button>
-    </router-link> -->
-
     <button v-on:click="editTag(tag)">edit tag</button>
 
     <dialog id="tag-details">
@@ -75,9 +71,7 @@ export default {
         .delete("/api/tags/" + this.$route.params.id)
         .then(response => {
           console.log("deleted!", response.data);
-          var index = this.tags.indexOf(tag);
-          this.tags.splice(index, 1);
-          this.$router.push("/tags");
+          this.$router.push("/recipes");
         });
     },
   }
