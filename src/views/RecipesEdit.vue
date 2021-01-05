@@ -129,8 +129,6 @@ export default {
     createRecipeTag: function() {
       this.tag = this.option;
       // tag = tag.id
-      console.log(this.tag);
-      console.log(this.recipe.id);
 
       var params = {
         recipe_id: parseInt(this.recipe.id),
@@ -147,17 +145,16 @@ export default {
     },
     
     destroyRecipeTag: function(tag) {
-      // var params = {
-      //   recipe_id: this.recipe.id,
-      //   tag_id: this.tag.id,
-      // };
-      console.log(tag);
-      // console.log(this.recipe);
-      // axios
-      //   .delete("/api/recipe_tags/" + ${tag.recipe_tag.id}, params)
-      //   .then(response => {
-      //     console.log("recipe_tag destroyed", response.data);
-      //   });
+      var params = {
+        tag_id: tag.id,
+        recipe_id: this.recipe.id,
+      };
+      console.log(params);
+      axios
+        .delete("/api/recipe_tags", { data: params })
+        .then(response => {
+          console.log("recipe_tag destroyed", response.data);
+        });
     },
   }
 };
