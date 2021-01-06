@@ -39,7 +39,8 @@
 
 		<!-- Page Title
 		============================================= -->
-		<section id="slider" class="slider-element dark parallax include-header" style="background: #111 url('/demos/recipes/images/recipe-single.jpg') center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;">
+		<!-- <section id="slider" class="slider-element dark parallax include-header" :style="{background:`url(${recipe.image})`} center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;"> -->
+		<section id="slider" class="slider-element dark parallax include-header" style="background: url('/demos/recipes/images/recipe-single.jpg') center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;">
 
 			<div class="container clearfix">
 				<div class="mx-auto center" style="max-width: 800px">
@@ -153,10 +154,6 @@
 </template>
 
 <style>
-  img {
-    height: 300px;
-  }
-
   input[type=checkbox]:checked + label.strikethrough {
     text-decoration: line-through;
   }
