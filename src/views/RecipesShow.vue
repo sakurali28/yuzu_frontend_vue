@@ -98,7 +98,6 @@
 
 									<div class="widget clearfix">
 										<h4>Tags <i class="icon-line-tag"></i></h4>
-										
 										<div class="tagcloud" v-for="tag in tags">
 											<router-link v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
 										</div>
