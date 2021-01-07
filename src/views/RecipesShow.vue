@@ -48,7 +48,8 @@
 				</div>
 			</div>
 
-		</section><!-- #page-title end -->
+		</section>
+		<!-- #page-title end -->
 
 		<!-- Content============================================= -->
 		<section id="content" class="bg-light">
@@ -149,7 +150,8 @@
 					</div>
 				</div>
 			</div>
-		</section><!-- #content end -->
+		</section>
+		<!-- #content end -->
 	</div><!-- #wrapper end -->
 </template>
 

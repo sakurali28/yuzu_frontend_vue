@@ -26,11 +26,13 @@
   </div> -->
 
   <div id="wrapper" class="clearfix">
-    
+
     <section id="content">
       <div class="content-wrap">
         <div class="container clearfix">
-          <h3 class="mb-0">Recipes</h3>
+          <div class="mx-auto center" style="max-width: 800px">
+            <h3 class="nott font-weight-bold mb-5 display-4">Recipes</h3>
+          </div>
           <!-- search bar -->
           <div class="widget widget-search">
             <form class="input-group">
@@ -42,25 +44,24 @@
           </div>
 
           <!-- Portfolio Items============================================= -->
-					<div id="portfolio" class="portfolio row grid-container gutter-30">
-						<article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
+          <div id="portfolio" class="portfolio row grid-container gutter-30">
+            <article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
 
-						<!-- <article class="portfolio-item col-sm-6 col-12 pf-media pf-icons" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')"> -->
-							<div class="grid-inner">
-								<div class="portfolio-image">
-									<img v-bind:src="`${recipe.image}`" alt="Open Imagination">
-								</div>
-								<div class="portfolio-desc">
-									<span><i class="icon-line-clock"></i> {{ recipe.cooktime_conversion }}</span>
-									<h3><a v-bind:href="`/recipes/${recipe.id}`" class="color-underline stretched-link">{{ recipe.name }}</a></h3>
-								</div>
-							</div>
-						</article>
-					</div><!-- #portfolio end -->
+            <!-- <article class="portfolio-item col-sm-6 col-12 pf-media pf-icons" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')"> -->
+              <div class="grid-inner">
+                <div class="portfolio-image">
+                  <img v-bind:src="`${recipe.image}`" alt="Open Imagination">
+                </div>
+                <div class="portfolio-desc">
+                  <span><i class="icon-line-clock"></i> {{ recipe.cooktime_conversion }}</span>
+                  <h3><a v-bind:href="`/recipes/${recipe.id}`" class="color-underline stretched-link">{{ recipe.name }}</a></h3>
+                </div>
+              </div>
+            </article>
+          </div><!-- #portfolio end -->
         </div>
       </div>
     </section>
-    
 
   </div>
 </template>
