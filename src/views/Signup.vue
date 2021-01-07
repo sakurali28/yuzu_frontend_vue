@@ -75,10 +75,10 @@
 												<div class="col-12">
 													<button type="submit" class="btn btn-secondary btn-block btn-lg">Create an Account</button>
 												</div>
-											</div>
-                        <router-link v-bind:to="`/`">
-                        <button class="btn btn-outline-dark">cancel</button>
-                      </router-link>
+												</div>
+													<router-link v-bind:to="`/`">
+													<button class="btn btn-outline-dark btn-block btn-lg">cancel</button>
+												</router-link>
 										</form>
 									</div>
 								</div>

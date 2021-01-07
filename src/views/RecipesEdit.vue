@@ -9,6 +9,7 @@
         Cooktime(minutes): <input type="text" v-model="recipe.cooktime"><br>
         Ingredients: <input type="text" v-model="recipe.ingredients"><br>
         Directions: <input type="text" v-model="recipe.directions"><br>
+        Notes: <input type="text" v-model="recipe.notes"><br>
       </div>
       <button v-on:click="updateRecipe(recipe)">update</button>
       <button v-on:click="destroyRecipe(recipe)">delete</button>
@@ -72,7 +73,8 @@ export default {
       servings: "",
       cooktime: "",
       ingredients: "",
-      directions: ""
+      directions: "",
+      notes: "",
     };
   },
 
@@ -101,6 +103,7 @@ export default {
         cooktime: this.recipe.cooktime,
         ingredients: this.recipe.ingredients,
         directions: this.recipe.directions,
+        notes: this.recipe.notes,
       };
       axios
         .patch("/api/recipes/" + this.recipe.id, params)

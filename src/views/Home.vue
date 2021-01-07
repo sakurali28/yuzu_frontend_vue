@@ -77,7 +77,7 @@
     }
   }
 
-  .secondary-color { background: rgb(7, 7, 7) !important; }
+  .secondary-color { background: black !important; }
 </style>
 
 <script>
