@@ -6,16 +6,14 @@
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email: </label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="email">
+        <input type="email" class="form-control" placeholder="email" v-model="email">
       </div>
       <div class="form-group">
-        <label>Password: </label>
-        <input type="password" class="form-control" v-model="password">
+        <input type="password" class="form-control" placeholder="password" v-model="password">
       </div>
-      <input type="submit" class="btn btn-outline-dark" value="log in">
+      <input type="submit" class="button button-circle button-border" value="log in">
       <router-link v-bind:to="`/`">
-        <button class="btn btn-outline-dark">cancel</button>
+        <button class="button button-circle button-border">cancel</button>
       </router-link>
     </form>
   </div>
