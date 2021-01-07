@@ -131,9 +131,9 @@
 
 								<div class="col-lg-8 mt-5 mt-lg-0">
 									<h4>Directions</h4>
-									<ul class="list-unstyled list-preparation" v-for="direction in directions">
-										<input type="checkbox">
-                    <label class="strikethrough">{{ direction }}</label>
+									<ul v-for="direction in directions">
+										<input class="form-check-input" type="checkbox">
+                    <label class="strikethrough form-check-label nott ls0 mb-0">{{ direction }}</label>
 									</ul>
 
 									<div class="line my-5"></div>

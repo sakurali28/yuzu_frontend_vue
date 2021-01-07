@@ -44,7 +44,7 @@
 										<form v-on:submit.prevent="submit()">
 											<div class="row">
 												<div class="col-12 center mb-5">
-													<h2 class="font-secondary font-italic h1">Let's Get Started</h2>
+													<h2 class="font-secondary h1">Let's Get Started</h2>
 													<h6 class="font-body text-uppercase ls3">Shall We?</h6>
 												</div>
 
@@ -73,12 +73,13 @@
 												</div>
 
 												<div class="col-12">
-													<button type="submit" class="btn btn-secondary btn-block btn-lg">Create an Account</button>
-												</div>
-												</div>
+													<button type="submit" class="button button-large button-circle button-border">create an account</button>
 													<router-link v-bind:to="`/`">
-													<button class="btn btn-outline-dark btn-block btn-lg">cancel</button>
-												</router-link>
+														<button class="button button-large button-circle button-border">cancel</button>
+													</router-link>
+												</div>
+												
+											</div>
 										</form>
 									</div>
 								</div>
