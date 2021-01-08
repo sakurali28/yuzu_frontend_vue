@@ -84,10 +84,10 @@
                     <dialog id="tag-create">
                       <form method="dialog">
                         <h1>Create a New Tag</h1>
-                        <label>Name: </label> 
-                        <input type="text" class="form-control" v-model="name">
-                        <button v-on:click="createTag()">create</button>
-                        <button>close</button>
+                        <input type="text" class="required sm-form-control border-form-control" placeholder="enter tag name" v-model="name">
+                        <br>
+                        <button v-on:click="createTag()" class="button button-circle button-border">create</button>
+                        <button class="button button-circle button-border">close</button>
                       </form>
                     </dialog>
                   </li>

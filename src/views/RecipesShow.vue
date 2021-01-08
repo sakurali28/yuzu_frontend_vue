@@ -40,21 +40,28 @@
 		<!-- Page Title
 		============================================= -->
 		<!-- <section id="slider" class="slider-element dark parallax include-header" :style="{background:`url(${recipe.image})`} center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;"> -->
-		<section id="slider" class="slider-element dark parallax include-header" style="background: url('/demos/recipes/images/recipe-single.jpg') center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;">
-
-			<div class="container clearfix">
-				<div class="mx-auto center" style="max-width: 800px">
-					<h3 class="nott font-weight-bold mb-5 display-4">{{ recipe.name }}</h3>
-				</div>
-			</div>
-
-		</section>
+		<!-- <section id="slider" class="slider-element dark parallax include-header" style="background: url('/demos/recipes/images/recipe-single.jpg') center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;">
+		</section> -->
 		<!-- #page-title end -->
+
+
 
 		<!-- Content============================================= -->
 		<section id="content" class="bg-light">
 			<div class="content-wrap pt-0" style="overflow: visible;">
 				<div class="container">
+					
+					<!-- Entry Image
+					============================================= -->
+					<div class="container clearfix">
+						<div class="mx-auto center" style="max-width: 800px; padding-top: 50px;">
+							<h3 class="nott font-weight-bold mb-5 display-4">{{ recipe.name }}</h3>
+						</div>
+					</div>
+					<div class="entry-image mt-5">
+						<img class="rounded" v-bind:src="`${recipe.image}`" alt="Blog Single">
+					</div><!-- .entry-image end -->
+
 					<div class="card border-0 shadow-sm" style="top: -100px;">
 						<div class="card-body px-4">
 							<div class="row align-items-center justify-content-between py-3">

@@ -28,6 +28,19 @@
       <div class="content-wrap">
         <div class="container clearfix">
 
+          <button v-on:click="editTag(tag)" class="button button-circle button-border">edit tag</button>
+          <dialog id="tag-details">
+            <form method="dialog">
+              <h1>edit tag</h1>
+              <input type="text" v-model="tag.name" class="required sm-form-control border-form-control" placeholder="email address">
+              <br>
+              <button v-on:click="updateTag(tag)" class="button button-circle button-border">update</button>
+              <button v-on:click="destroyTag(tag)" class="button button-circle button-border">delete</button>
+              <br>
+              <button class="button button-circle">close</button>
+            </form>
+          </dialog>
+
           <div class="mx-auto center" style="max-width: 800px">
             <h3 class="nott font-weight-bold mb-5 display-4">{{ tag.name}}</h3>
           </div>
