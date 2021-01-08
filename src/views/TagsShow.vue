@@ -1,5 +1,5 @@
 <template>
-  <div class="tag-show">
+  <!-- <div class="tag-show">
     <h2>{{ tag.name }}</h2>
     
     <div v-for="recipe in tag.recipes">
@@ -20,7 +20,41 @@
       </form>
     </dialog>
 
+  </div> -->
+
+  <div id="wrapper" class="clearfix">
+
+    <section id="content">
+      <div class="content-wrap">
+        <div class="container clearfix">
+
+          <div class="mx-auto center" style="max-width: 800px">
+            <h3 class="nott font-weight-bold mb-5 display-4">{{ tag.name}}</h3>
+          </div>
+
+          <!-- Portfolio Items============================================= -->
+          <div id="portfolio" class="portfolio row grid-container gutter-30">
+            <article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons" v-for="recipe in tag.recipes">
+
+              <div class="grid-inner">
+                <div class="portfolio-image">
+                  <img v-bind:src="`${recipe.image}`" alt="Open Imagination">
+                </div>
+
+                <div class="portfolio-desc">
+                  <h3><a v-bind:href="`/recipes/${recipe.id}`" class="color-underline stretched-link">{{ recipe.name }}</a></h3>
+                </div>
+                
+              </div>
+            </article>
+          </div><!-- #portfolio end -->
+
+        </div>
+      </div>
+    </section>
+
   </div>
+
 </template>
 
 <style>
