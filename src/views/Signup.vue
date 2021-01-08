@@ -31,115 +31,61 @@
   <div id="wrapper" class="clearfix">
 
     <!-- Content============================================= -->
-		<section id="content">
-			<div class="content-wrap bg-light">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-lg-7 col-md-10">
-							<div class="card my-5 shadow-sm">
-								<div class="card-body p-5">
-									<h4 class="ls4 center">SIGNUP FORM</h4>
-									<div class="divider divider-sm divider-center text-dark"><i class="icon-heart21"></i></div>
-									<div class="form-widget" data-alert-type="false">
-										<form v-on:submit.prevent="submit()">
-											<div class="row">
-												<div class="col-12 center mb-5">
-													<h2 class="font-secondary h1">Let's Get Started</h2>
-													<h6 class="font-body text-uppercase ls3">Shall We?</h6>
-												</div>
+    <section id="content">
+      <div class="content-wrap">
+        <div id="section-about" class="container-fluid page-section clearfix">
+          <div id="section-contact" >
+            <h3>let's get you started.</h3>
 
-												<div class="col-12">
-													<div class="row">
-														<div class="col-md-6 bottommargin-sm">
-															<label>Name<small class="text-danger">*</small></label>
-															<input type="text" class="form-control" placeholder="Enter your Name" v-model="name">
-														</div>
+            <div class="form-widget">
 
-														<div class="col-md-6 bottommargin-sm">
-															<label>Email<small class="text-danger">*</small></label>
-															<input type="email" class="form-control" placeholder="Enter your Email" v-model="email">
-														</div>
+              <form v-on:submit.prevent="submit()" class="row mb-0">
 
-														<div class="col-md-6 bottommargin-sm">
-															<label>Password<small class="text-danger">*</small></label>
-															<input type="password" class="form-control" placeholder="Enter your Password" v-model="password">
-														</div>
+                <div class="col-md-6 form-group">
+                  <input type="text" v-model="name" class="required sm-form-control border-form-control" placeholder="name" />
+                </div>
 
-														<div class="col-md-6 bottommargin-sm">
-															<label>Password Confirmation<small class="text-danger">*</small></label>
-															<input type="password" class="form-control" placeholder="Enter your Password again" v-model="passwordConfirmation">
-														</div>
-													</div>
-												</div>
+                <div class="col-md-6 form-group">
+                  <input type="email" v-model="email" class="required sm-form-control border-form-control" placeholder="email address" />
+                </div>
 
-												<div class="col-12">
-													<button type="submit" class="button button-large button-circle button-border">create an account</button>
-													<router-link v-bind:to="`/`">
-														<button class="button button-large button-circle button-border">cancel</button>
-													</router-link>
-												</div>
-												
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section><!-- #content end -->
+                <div class="clear"></div>
+
+                <div class="col-12 form-group">
+                  <input type="password" v-model="password" class="required sm-form-control border-form-control" placeholder="password" />
+                </div>
+
+                <div class="col-12 form-group">
+                  <input type="password" v-model="passwordConfirmation" class="required sm-form-control border-form-control" placeholder="password confirmation" />
+                </div>
+
+                <!-- <div class="col-12 form-group">
+                  <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
+                </div> -->
+
+                <input type="submit" class="button button-circle button-border" value="sign up">
+                <router-link v-bind:to="`/`">
+                  <button class="button button-circle button-border">cancel</button>
+                </router-link>
+
+              </form>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   
   </div>
 
 </template>
 
-	<style>
-		.file-caption.icon-visible .file-caption-name {
-			font-family: 'Lato', sans-serif;
-			color: #666;
+	<style>	
+		.container-fluid {
+			padding-left: 120px !important;
+			padding-right: 120px !important;
 		}
-		.form-process {
-			position: absolute;
-			-webkit-transition: all .3s ease;
-			-o-transition: all .3s ease;
-			transition: all .3s ease;
-			background-image: none;
-		}
-
-		.form-process > div { background-color: #999;  }
-
-		.form-process,
-		#template-wedding-submitted,
-		.template-wedding-complete .form-process {
-			display: none;
-			opacity: 0;
-			background-color: rgba(255,255,255,0.7);
-		}
-
-		.template-wedding-processing .form-process {
-			display: block;
-			opacity: 1;
-		}
-
-		.divider.divider-center.divider-sm:before,
-		.divider.divider-center.divider-sm:after { border-color: #CCC; }
-
-		.btn-group label.error {
-			display: block !important;
-			text-transform: none;
-			position: absolute;
-      bottom: -34px;
-      left: 0;
-      margin-bottom: 10px;
-		}
-
-		.btn-group input.valid ~ label.error,
-		.btn-group input[type="text"] ~ label.error,
-		.btn-group input[type="email"] ~ label.error,
-		.btn-group input[type="number"] ~ label.error,
-		.btn-group select ~ label.error { display: none !important; }
-
 	</style>
 
 <script>

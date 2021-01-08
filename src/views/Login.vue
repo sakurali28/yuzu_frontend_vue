@@ -26,17 +26,17 @@
       <div class="content-wrap">
         <div id="section-about" class="container-fluid page-section clearfix">
           <div id="section-contact" >
-            <h3>login.</h3>
+            <h3>welcome back.</h3>
             <div class="form-widget">
 
               <form v-on:submit.prevent="submit()" class="row mb-0">
 
                 <div class="col-md-6 form-group">
-                  <input type="email" v-model="email" class="required sm-form-control border-form-control" placeholder="Email Address" />
+                  <input type="email" v-model="email" class="required sm-form-control border-form-control" placeholder="email address" />
                 </div>
 
                 <div class="col-md-6 form-group">
-                  <input type="password" v-model="password" class="required sm-form-control border-form-control" placeholder="Password" />
+                  <input type="password" v-model="password" class="required sm-form-control border-form-control" placeholder="password" />
                 </div>
 
                 <div class="clear"></div>
