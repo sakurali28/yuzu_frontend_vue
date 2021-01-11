@@ -30,9 +30,13 @@
     <section id="content">
       <div class="content-wrap">
         <div class="container clearfix">
+          <router-link v-bind:to="`/recipes/new`">
+            <button class="button button-circle button-border">+ New Recipe</button>
+          </router-link>
           <div class="mx-auto center" style="max-width: 800px">
             <h3 class="nott font-weight-bold mb-5 display-4">Recipes</h3>
           </div>
+
           <!-- search bar -->
           <div class="widget widget-search">
             <form class="input-group">

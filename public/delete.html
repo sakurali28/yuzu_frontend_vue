@@ -1,22 +1,50 @@
-<div class="tag-show">
-  <!-- <h2>{{ tag.name }}</h2>
-  
-  <div v-for="recipe in tag.recipes">
-    <router-link v-bind:to="`/recipes/${recipe.id}`">
-      <h3>{{ recipe.name }}</h3>
-    </router-link>
-  </div> -->
+<div class="new-recipe">
+  <form v-on:submit.prevent="submit()">
+    <h1>Create a New Recipe</h1>
+    <h2>Ooh Exiting!</h2>
 
-  <button v-on:click="editTag(tag)">edit tag</button>
+    <ul>
+      <li class="text-danger" v-for="error in errors">{{ error }}</li>
+    </ul>
 
-  <dialog id="tag-details">
-    <form method="dialog">
-      <h1>Edit Tag</h1>
-      <p>Name: <input type="text" v-model="tag.name"></p>
-      <button v-on:click="updateTag(tag)">update</button>
-      <button v-on:click="destroyTag(tag)">delete</button>
-      <button>close</button>
-    </form>
-  </dialog>
+    <!-- <div class="form-group">
+      <label>Name: </label> 
+      <input type="text" class="form-control" v-model="name">
+    </div> -->
 
+    <div class="form-group">
+      <label>Image: </label>
+      <input type="text" class="form-control" v-model="image">
+    </div>
+
+    <div class="form-group">
+      <label>Servings: </label>
+      <input type="text" class="form-control" v-model="servings">
+    </div>
+
+    <div class="form-group">
+      <label>Cooktime(minutes): </label>
+      <input type="text" class="form-control" v-model="cooktime">
+    </div>
+
+    <div class="form-group">
+      <label>Ingredients: </label>
+      <input type="text" class="form-control" v-model="ingredients">
+    </div>
+
+    <div class="form-group">
+      <label>Directions: </label>
+      <input type="text" class="form-control" v-model="directions">
+    </div>
+    <div class="form-group">
+      <label>Notes: </label>
+      <input type="text" class="form-control" v-model="notes">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="submit">
+
+  </form>
+  <router-link v-bind:to="'/recipes'">
+    <button>back</button>
+  </router-link>
 </div>
