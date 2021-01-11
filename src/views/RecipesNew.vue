@@ -54,60 +54,59 @@
 
     <!-- Content============================================= -->
     <section id="content">
-      <div class="content-wrap">
-        <div id="section-about" class="container-fluid page-section clearfix">
-          <div id="section-contact" >
-            <h3>Create a New Recipe.</h3>
 
-            <div class="form-widget">
+      <div id="section-about" class="container-fluid page-section clearfix">
+        <div id="section-contact" >
+          <h3>create a new recipe.</h3>
 
-              <form v-on:submit.prevent="submit()" class="row mb-0">
+          <div class="form-widget">
 
-                <div class="col-md-6 form-group">
-                  <input type="text" v-model="name" class="required sm-form-control border-form-control" placeholder="name" />
-                </div>
+            <form v-on:submit.prevent="submit()" class="row mb-0">
 
-                <div class="clear"></div>
+              <div class="col-md-6 form-group">
+                <input type="text" v-model="name" class="required sm-form-control border-form-control" placeholder="name" />
+              </div>
 
-                <div class="col-md-6 form-group">
-                  <input type="text" v-model="servings" class="required sm-form-control border-form-control" placeholder="servings" />
-                </div>
+              <div class="clear"></div>
 
-                <div class="col-md-6 form-group">
-                  <input type="text" v-model="cooktime" class="required sm-form-control border-form-control" placeholder="cooktime" />
-                </div>
+              <div class="col-md-6 form-group">
+                <input type="text" v-model="servings" class="required sm-form-control border-form-control" placeholder="servings" />
+              </div>
 
-                <div class="clear"></div>
+              <div class="col-md-6 form-group">
+                <input type="text" v-model="cooktime" class="required sm-form-control border-form-control" placeholder="cooktime (minutes)" />
+              </div>
 
-                <div class="col-12 form-group">
-                  <input type="text" v-model="ingredients" class="required sm-form-control border-form-control" placeholder="ingredients" />
-                </div>
+              <div class="clear"></div>
 
-                <div class="col-12 form-group">
-                  <input type="text" v-model="directions" class="required sm-form-control border-form-control" placeholder="directions" />
-                </div>
+              <div class="col-12 form-group">
+                <input type="text" v-model="ingredients" class="required sm-form-control border-form-control" placeholder="ingredients" />
+              </div>
 
-                <div class="col-12 form-group">
-                  <input type="text" v-model="notes" class="required sm-form-control border-form-control" placeholder="notes" />
-                </div>
+              <div class="col-12 form-group">
+                <input type="text" v-model="directions" class="required sm-form-control border-form-control" placeholder="directions" />
+              </div>
 
-                <div class="col-12 form-group">
-                  <input type="text" v-model="image" class="required sm-form-control border-form-control" placeholder="image" />
-                </div>
+              <div class="col-12 form-group">
+                <input type="text" v-model="notes" class="required sm-form-control border-form-control" placeholder="notes" />
+              </div>
 
-                <!-- <div class="col-12 form-group">
-                  <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
-                </div> -->
+              <div class="col-12 form-group">
+                <input type="text" v-model="image" class="required sm-form-control border-form-control" placeholder="image" />
+              </div>
 
-                <input type="submit" class="button button-circle button-border" value="create recipe">
-                <router-link v-bind:to="`/`">
-                  <button class="button button-circle button-border">back</button>
-                </router-link>
+              <!-- <div class="col-12 form-group">
+                <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
+              </div> -->
 
-              </form>
+              <input type="submit" class="button button-circle button-border" value="create recipe">
+              <router-link v-bind:to="`/`">
+                <button class="button button-circle button-border">back</button>
+              </router-link>
 
-              
-            </div>
+            </form>
+
+            
           </div>
         </div>
       </div>

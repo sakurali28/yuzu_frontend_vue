@@ -83,7 +83,7 @@
                     </ul>
                     <dialog id="tag-create">
                       <form method="dialog">
-                        <h1>Create a New Tag</h1>
+                        <h1>create a new tag</h1>
                         <input type="text" class="required sm-form-control border-form-control" placeholder="enter tag name" v-model="name">
                         <br>
                         <button v-on:click="createTag()" class="button button-circle button-border">create</button>
