@@ -1,5 +1,5 @@
 <template>
-  <div class="users-edit">
+  <!-- <div class="users-edit">
     <h1>Edit Account</h1>
     <form v-on:submit.prevent="updateUser(user)">
       <p>
@@ -25,6 +25,59 @@
       <button>cancel</button>
     </router-link>
 
+  </div> -->
+
+  <div id="wrapper" class="clearfix">
+
+    <!-- Content============================================= -->
+    <section id="content">
+
+      <div id="section-about" class="container-fluid page-section clearfix">
+        <div id="section-contact" >
+          <h3>edit profile.</h3>
+
+          <div class="form-widget">
+
+            <form v-on:submit.prevent="updateUser(user)" class="row mb-0">
+
+              <div class="col-md-6 form-group">
+                <input type="text" v-model="user.name" class="required sm-form-control border-form-control" placeholder="name" />
+              </div>
+
+              <div class="clear"></div>
+
+              <div class="col-md-6 form-group">
+                <input type="email" v-model="user.email" class="required sm-form-control border-form-control" placeholder="email address" />
+              </div>
+
+              <div class="clear"></div>
+
+              <div class="col-12 form-group">
+                <input type="password" v-model="user.password" class="required sm-form-control border-form-control" placeholder="password" />
+              </div>
+
+              <div class="col-12 form-group">
+                <input type="password" v-model="user.password_confirmation" class="required sm-form-control border-form-control" placeholder="password confirmation" />
+              </div>
+
+              <button class="button button-circle button-border" v-on:click="destroyUser(user)">delete</button>
+
+              <input type="submit" class="button button-circle button-border" value="update profile">
+
+              <div class="clear"></div>
+
+              <router-link v-bind:to="`/users`">
+                <button class="button button-circle button-border">back</button>
+              </router-link>
+
+            </form>
+
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  
   </div>
 </template>
 

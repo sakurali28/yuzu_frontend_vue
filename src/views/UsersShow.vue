@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div class="users-show">
-      <h1>Account Info</h1>
-      <h3>Name: {{user.name}}</h3>
-      <h3>Email: {{user.email}}</h3>
-    </div>
-    <div>
+    <div class="mx-auto center" style="padding-top: 50px;">
+      <h1 style="padding-bottom: 50px;">Account Info</h1>
+      <h4>{{user.name}}</h4>
+      <h4 style="padding-bottom: 50px;">{{user.email}}</h4>
       <router-link v-bind:to="`/users/edit`">
-        <button>edit</button>
+        <button class="button button-circle button-border" >edit</button>
       </router-link>
     </div>
   </div>

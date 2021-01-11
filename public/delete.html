@@ -1,50 +1,27 @@
-<div class="new-recipe">
-  <form v-on:submit.prevent="submit()">
-    <h1>Create a New Recipe</h1>
-    <h2>Ooh Exiting!</h2>
-
-    <ul>
-      <li class="text-danger" v-for="error in errors">{{ error }}</li>
-    </ul>
-
-    <!-- <div class="form-group">
-      <label>Name: </label> 
-      <input type="text" class="form-control" v-model="name">
-    </div> -->
-
-    <div class="form-group">
-      <label>Image: </label>
-      <input type="text" class="form-control" v-model="image">
+<div class="users-edit">
+  <h1>Edit Account</h1>
+  <form v-on:submit.prevent="updateUser(user)">
+    <p>
+      Name: <input type="text" v-model="user.name" />
+    </p>
+    <p>
+      Email: <input type="text" v-model="user.email" />
+    </p>
+    <p>
+      Password: <input type="password" v-model="user.password" />
+    </p>
+    <p>
+      Confirm Password: <input type="password" v-model="user.password_confirmation" />
+    </p>
+    <div>
+      <input type="submit" value="update" />
     </div>
-
-    <div class="form-group">
-      <label>Servings: </label>
-      <input type="text" class="form-control" v-model="servings">
-    </div>
-
-    <div class="form-group">
-      <label>Cooktime(minutes): </label>
-      <input type="text" class="form-control" v-model="cooktime">
-    </div>
-
-    <div class="form-group">
-      <label>Ingredients: </label>
-      <input type="text" class="form-control" v-model="ingredients">
-    </div>
-
-    <div class="form-group">
-      <label>Directions: </label>
-      <input type="text" class="form-control" v-model="directions">
-    </div>
-    <div class="form-group">
-      <label>Notes: </label>
-      <input type="text" class="form-control" v-model="notes">
-    </div>
-
-    <input type="submit" class="btn btn-primary" value="submit">
-
   </form>
-  <router-link v-bind:to="'/recipes'">
-    <button>back</button>
+
+  <button v-on:click="destroyUser(user)">delete</button>
+
+  <router-link to="/users">
+    <button>cancel</button>
   </router-link>
+
 </div>
