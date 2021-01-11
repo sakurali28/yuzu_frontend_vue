@@ -17,6 +17,7 @@ import RecipesEdit from "../views/RecipesEdit.vue";
 import TagsShow from "../views/TagsShow.vue";
 
 import BookmarksIndex from "../views/BookmarksIndex.vue";
+import BookmarksNew from "../views/BookmarksNew.vue";
 
 Vue.use(VueRouter);
 
@@ -80,6 +81,11 @@ const routes = [
     path: "/bookmarks",
     name: "bookmarks-index",
     component: BookmarksIndex,
+  },
+  {
+    path: "/bookmarks/new",
+    name: "bookmarks-new",
+    component: BookmarksNew,
   },
 ];
 
