@@ -100,7 +100,7 @@
               </div> -->
 
               <input type="submit" class="button button-circle button-border" value="create recipe">
-              <router-link v-bind:to="`/`">
+              <router-link v-bind:to="`/recipes`">
                 <button class="button button-circle button-border">back</button>
               </router-link>
 
