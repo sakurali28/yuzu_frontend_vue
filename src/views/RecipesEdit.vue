@@ -52,7 +52,7 @@
   <div id="wrapper" class="clearfix">
 
     <!-- Content============================================= -->
-    <section id="content">
+    <section id="content" class="bg-light">
 
       <div id="section-about" class="container-fluid page-section clearfix">
         <div id="section-contact">

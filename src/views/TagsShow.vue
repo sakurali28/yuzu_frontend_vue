@@ -24,7 +24,7 @@
 
   <div id="wrapper" class="clearfix">
 
-    <section id="content">
+    <section id="content" class="bg-light">
       <div class="content-wrap">
         <div class="container clearfix">
 

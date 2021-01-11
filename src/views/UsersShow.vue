@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-light">
     <div class="mx-auto center" style="padding-top: 50px;">
       <h1 style="padding-bottom: 50px;">Account Info</h1>
       <h4>{{user.name}}</h4>
