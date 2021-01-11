@@ -43,10 +43,10 @@
 
                 <!-- <div class="col-12 form-group">
                   <input type="text" id="template-contactform-subject" name="subject" value="" class="required sm-form-control border-form-control" placeholder="Subject" />
-                </div> -->
+                </div>
 
-                <!-- <div class="col-12 form-group">
-                  <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
+                <div class="col-12 form-group">
+                  <textarea class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="Your Message"></textarea>
                 </div> -->
 
                 <input type="submit" class="button button-circle button-border" value="log in">

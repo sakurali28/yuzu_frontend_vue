@@ -1,27 +1,49 @@
-<div class="users-edit">
-  <h1>Edit Account</h1>
-  <form v-on:submit.prevent="updateUser(user)">
-    <p>
-      Name: <input type="text" v-model="user.name" />
-    </p>
-    <p>
-      Email: <input type="text" v-model="user.email" />
-    </p>
-    <p>
-      Password: <input type="password" v-model="user.password" />
-    </p>
-    <p>
-      Confirm Password: <input type="password" v-model="user.password_confirmation" />
-    </p>
+  <div id="recipe-edit">
+    <h2>Edit Recipe</h2>
     <div>
-      <input type="submit" value="update" />
+      <!-- Name: <input type="text" v-model="recipe.name"><br> -->
+      Image: <input type="text" v-model="recipe.image"><br>
+      <!-- Servings: <input type="text" v-model="recipe.servings"><br> -->
+      <!-- Cooktime(minutes): <input type="text" v-model="recipe.cooktime"><br> -->
+      Ingredients: <input type="text" v-model="recipe.ingredients"><br>
+      Directions: <input type="text" v-model="recipe.directions"><br>
+      Notes: <input type="text" v-model="recipe.notes"><br>
     </div>
-  </form>
+    <button v-on:click="updateRecipe(recipe)">update</button>
+    <button v-on:click="destroyRecipe(recipe)">delete</button>
+  </div>
 
-  <button v-on:click="destroyUser(user)">delete</button>
+  <div class="tag-edit">
+    <h2>Edit Tags: </h2>
+    <!-- display current tags & delete action -->
+    <div v-for="tag in recipeTag">
+      <router-link v-bind:to="`/tags/${tag.id}`">
+        <p>{{ tag.name }}</p>
+      </router-link>
+      <button v-on:click="destroyRecipeTag(tag)">delete tag</button>
+    </div>
 
-  <router-link to="/users">
+    <!-- select from existing tags or create a new one -->
+    <div>
+      <button v-on:click="showTagEdit()" v-if="tagEditAppear !== true">add Tag</button>
+      <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag(recipe)">
+        <div>
+          <select v-model="option">
+            <option disabled value="">select a tag:</option>
+            <option v-bind:value="`${tag.id}`" v-for="tag in tags">{{ tag.name }}</option>
+          </select>
+        </div>
+
+        <div>
+          <input type="submit" value="add tag" />
+        </div>
+        <button v-on:click="showTagEdit()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <br>
+
+  <router-link v-bind:to="`/recipes/${recipe.id}`">
     <button>cancel</button>
   </router-link>
-
-</div>

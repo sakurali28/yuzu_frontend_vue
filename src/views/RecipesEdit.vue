@@ -1,5 +1,5 @@
 <template>
-  <div class="recipes-edit">
+  <!-- <div class="recipes-edit">
     <div id="recipe-edit">
       <h2>Edit Recipe</h2>
       <div>
@@ -17,7 +17,6 @@
 
     <div class="tag-edit">
       <h2>Edit Tags: </h2>
-      <!-- display current tags & delete action -->
       <div v-for="tag in recipeTag">
         <router-link v-bind:to="`/tags/${tag.id}`">
           <p>{{ tag.name }}</p>
@@ -25,7 +24,6 @@
         <button v-on:click="destroyRecipeTag(tag)">delete tag</button>
       </div>
 
-      <!-- select from existing tags or create a new one -->
       <div>
         <button v-on:click="showTagEdit()" v-if="tagEditAppear !== true">add Tag</button>
         <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag(recipe)">
@@ -49,7 +47,95 @@
     <router-link v-bind:to="`/recipes/${recipe.id}`">
       <button>cancel</button>
     </router-link>
+  </div> -->
+
+  <div id="wrapper" class="clearfix">
+
+    <!-- Content============================================= -->
+    <section id="content">
+
+      <div id="section-about" class="container-fluid page-section clearfix">
+        <div id="section-contact">
+          <h2 class="mx-auto center">edit recipe</h2>
+
+          <div class="form-widget">
+            <form v-on:submit.prevent="updateRecipe(recipe)" class="row mb-0">
+              <div class="col-md-12 form-group">
+                <input type="text" v-model="recipe.name" class="required sm-form-control border-form-control" placeholder="name" />
+              </div>
+
+              <div class="clear"></div>
+
+              <div class="col-md-6 form-group">
+                servings:<input type="text" v-model="recipe.servings" class="required sm-form-control border-form-control" placeholder="servings" />
+              </div>
+
+              <div class="col-6 form-group">
+                cooktime:<input type="text" v-model="recipe.cooktime" class="required sm-form-control border-form-control" placeholder="cooktime" />
+              </div>
+
+              <div class="clear"></div>
+
+              <div class="col-12 form-group">
+                ingredients:<textarea v-model="recipe.ingredients" class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="ingredients"></textarea>
+              </div>
+
+              <div class="col-12 form-group">
+                directions:<textarea v-model="recipe.directions" class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="directions"></textarea>
+              </div>
+
+              <div class="col-12 form-group">
+                notes:<textarea v-model="recipe.notes" class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="notes"></textarea>
+              </div>
+
+              <div class="mx-auto center">
+                <input type="submit" class="button button-circle button-border" value="update recipe">
+                <button class="button button-circle button-border button-small" v-on:click="destroyRecipe(recipe)">delete recipe</button>
+              </div>
+
+              <div class="clear"></div>
+            </form>
+          </div>
+
+          <div class="mx-auto center">
+            <h3 style="padding-top: 50px;">edit tags</h3>
+            <!-- display current tags & delete action -->
+            <div v-for="tag in recipeTag">
+              <!-- <router-link v-bind:to="`/tags/${tag.id}`"> -->
+              <p>{{ tag.name }}<button class="button button-circle button-border button-small" v-on:click="destroyRecipeTag(tag)">x</button></p>
+              <!-- </router-link> -->
+            </div>
+
+            <!-- select from existing tags or create a new one -->
+            <div>
+              <button class="button button-circle button-border" v-on:click="showTagEdit()" v-if="tagEditAppear !== true">+ Tag</button>
+              <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag(recipe)">
+                <div>
+                  <select v-model="option">
+                    <option disabled value="">select a tag:</option>
+                    <option v-bind:value="`${tag.id}`" v-for="tag in tags">{{ tag.name }}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <input class="button button-circle button-border button-small" type="submit" value="add tag" />
+                </div>
+                <button class="button button-circle button-border button-small" v-on:click="showTagEdit()">cancel</button>
+              </form>
+            </div>
+
+          </div>
+
+          <router-link v-bind:to="`/recipes/${recipe.id}`">
+            <button class="button button-circle button-border icon-line-arrow-left"></button>
+          </router-link>
+          
+        </div>
+      </div>
+    </section>
+  
   </div>
+
 </template>
 
 <style>
