@@ -32,7 +32,7 @@
           <dialog id="tag-details" class="mx-auto center">
             <form method="dialog">
               <h1>edit tag</h1>
-              <input type="text" v-model="tag.name" class="required sm-form-control border-form-control" placeholder="email address">
+              <input type="text" v-model="tag.name" class="required sm-form-control border-form-control" placeholder="name">
               <br>
               <button v-on:click="updateTag(tag)" class="button button-circle button-border">update</button>
               <button v-on:click="destroyTag(tag)" class="button button-circle button-border">delete</button>

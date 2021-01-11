@@ -45,7 +45,7 @@
     <div id="wrapper" class="clearfix">
 
       <!-- Header============================================= -->
-      <header id="header" class="transparent-header" v-if="isLoggedIn()">
+      <header id="header" class="header" v-if="isLoggedIn()">
         <div id="header-wrap">
           <div class="container">
             <div class="header-row">
@@ -53,7 +53,7 @@
               <!-- Logo============================================= -->
               <div id="logo">
                 <!-- <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="YUZU"></a> -->
-                <a href="/recipes" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="YUZU"></a>
+                <a href="/recipes" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="YUZU"></a>
               </div>
 
               <div id="primary-menu-trigger">
@@ -63,7 +63,8 @@
               <!-- Primary Navigation
               ============================================= -->
               <nav class="primary-menu">
-                <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+                <ul class="menu-container" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+
                   <li class="menu-item">
                     <a class="menu-link" href="/recipes">
                       <div>Recipes</div>
@@ -71,7 +72,7 @@
                   </li>
 
                   <li class="menu-item">
-                    <div class="menu-link">Tags <i class="icon-angle-down1 d-none d-lg-inline-block"></i></div>
+                    <div class="menu-link">Tags <i class="icon-line-chevron-down"></i></div>
                     <ul class="sub-menu-container rounded-bottom">
                       <li class="menu-item" v-for="tag in tags">
                         <router-link class="menu-link" v-bind:to="`/tags/${tag.id}`">
@@ -92,7 +93,9 @@
                     </dialog>
                   </li>
 
-                  <li class="menu-item"><a class="menu-link" href="/users"><div>Profile</div></a></li>
+                  <li class="menu-item"><a class="menu-link" href="/bookmarks"><div><i class="icon-bookmark-empty"></i></div></a></li>
+                  
+                  <li class="menu-item"><a class="menu-link" href="/users"><div><i class="icon-line-head"></i></div></a></li>
 
                   <li class="menu-item"><a class="menu-link" href="/logout"><div>Logout</div></a></li>
                 </ul>
