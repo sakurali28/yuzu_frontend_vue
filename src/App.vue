@@ -53,7 +53,7 @@
               <!-- Logo============================================= -->
               <div id="logo">
                 <!-- <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="YUZU"></a> -->
-                <a href="/recipes" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="YUZU"></a>
+                <a href="/recipes" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="YUZU" onmouseover="this.src='/images/logo@3x.png'" onmouseout="this.src='/images/logo@2x.png'"></a>
               </div>
 
               <div id="primary-menu-trigger">
@@ -94,6 +94,10 @@
                   </li>
 
                   <li class="menu-item"><a class="menu-link" href="/bookmarks"><div><i class="icon-bookmark-empty"></i></div></a></li>
+
+                  <li class="menu-item"><a class="menu-link" href="/bookmarks"><div><i class="icon-line-shopping-cart"></i></div></a></li>
+
+                  <li class="menu-item"><a class="menu-link" href="/bookmarks"><div><i class="icon-line-calendar"></i></div></a></li>
                   
                   <li class="menu-item"><a class="menu-link" href="/users"><div><i class="icon-line-head"></i></div></a></li>
 
@@ -250,6 +254,9 @@
 </template>
 
 <style>
+  /* #logo a:hover {
+    background-image: url("/images/logo@3x.png");
+  } */
 </style>
 
 <script>
