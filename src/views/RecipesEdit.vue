@@ -85,6 +85,10 @@
               </div>
 
               <div class="col-12 form-group">
+                image:<textarea v-model="recipe.image" class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="image"></textarea>
+              </div>
+
+              <div class="col-12 form-group">
                 notes:<textarea v-model="recipe.notes" class="required sm-form-control border-form-control" rows="7" cols="30" placeholder="notes"></textarea>
               </div>
 
@@ -106,7 +110,7 @@
               <!-- </router-link> -->
             </div>
 
-            <!-- select from existing tags or create a new one -->
+            <!-- select from existing tags -->
             <div>
               <button class="button button-circle button-border" v-on:click="showTagEdit()" v-if="tagEditAppear !== true">+ Tag</button>
               <form v-if="tagEditAppear === true" v-on:submit.prevent="createRecipeTag(recipe)">

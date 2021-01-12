@@ -60,9 +60,7 @@
           <h3>create a new recipe.</h3>
 
           <div class="form-widget">
-
             <form v-on:submit.prevent="submit()" class="row mb-0">
-
               <div class="col-md-6 form-group">
                 <input type="text" v-model="name" class="required sm-form-control border-form-control" placeholder="name" />
               </div>
@@ -95,19 +93,13 @@
                 <input type="text" v-model="image" class="required sm-form-control border-form-control" placeholder="image" />
               </div>
 
-              <!-- <div class="col-12 form-group">
-                <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
-              </div> -->
-
               <input type="submit" class="button button-circle button-border" value="create recipe">
               <router-link v-bind:to="`/recipes`">
                 <button class="button button-circle button-border">back</button>
               </router-link>
-
             </form>
-
-            
           </div>
+
         </div>
       </div>
     </section>
@@ -128,9 +120,10 @@ export default {
       ingredients: "",
       directions: "",
       notes: "",
-      errors: []
+      errors: [],
     };
   },
+
   methods: {
     submit: function() {
       var params = {  
@@ -150,7 +143,7 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
-    }
+    },
   }
 };
 </script>
