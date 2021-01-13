@@ -15,16 +15,11 @@
 	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="/style.css" type="text/css" />
 	<link rel="stylesheet" href="/css/swiper.css" type="text/css" />
-
 	<link rel="stylesheet" href="/css/dark.css" type="text/css" />
 	<link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="/css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
-	
-	<link rel="stylesheet" href="/css/calendar.css" type="text/css" />
-
 	<link rel="stylesheet" href="/one-page/css/fonts.css" type="text/css" />
-
 	<link rel="stylesheet" href="/css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -53,43 +48,10 @@
 	<!-- JavaScripts============================================= -->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/plugins.min.js"></script>
-	<script src="js/jquery.calendario.js"></script>
 	<script src="js/events-data.js"></script>
 
 	<!-- Footer Scripts============================================= -->
 	<script src="/js/functions.js"></script>
-
-	<script>
-
-		var cal = $( '#calendar' ).calendario( {
-				onDayClick : function( $el, $contentEl, dateProperties ) {
-
-					for( var key in dateProperties ) {
-						console.log( key + ' = ' + dateProperties[ key ] );
-					}
-
-				},
-				caldata : canvasEvents
-			} ),
-			$month = $( '#calendar-month' ).html( cal.getMonthName() ),
-			$year = $( '#calendar-year' ).html( cal.getYear() );
-
-		$( '#calendar-next' ).on( 'click', function() {
-			cal.gotoNextMonth( updateMonthYear );
-		} );
-		$( '#calendar-prev' ).on( 'click', function() {
-			cal.gotoPreviousMonth( updateMonthYear );
-		} );
-		$( '#calendar-current' ).on( 'click', function() {
-			cal.gotoNow( updateMonthYear );
-		} );
-
-		function updateMonthYear() {
-			$month.html( cal.getMonthName() );
-			$year.html( cal.getYear() );
-		};
-
-	</script>
 
 </body>
 </html>

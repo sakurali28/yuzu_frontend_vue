@@ -35,20 +35,10 @@
     </router-link>
   </div> -->
   
+	<!-- Content============================================= -->
   <div id="wrapper" class="clearfix">
-
-		<!-- Page Title
-		============================================= -->
-		<!-- <section id="slider" class="slider-element dark parallax include-header" :style="{background:`url(${recipe.image})`} center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;"> -->
-		<!-- <section id="slider" class="slider-element dark parallax include-header" style="background: url('/demos/recipes/images/recipe-single.jpg') center center / cover; padding: 230px 0;" data-0="background-position:0px -200px;" data-400="background-position:0px -100px;">
-		</section> -->
-		<!-- #page-title end -->
-
-
-
-		<!-- Content============================================= -->
 		<section id="content" class="bg-light">
-			<div class="content-wrap pt-0" style="overflow: visible;">
+			<div class="content-wrap">
 				<div class="container">
 					
 					<!-- Entry Image
@@ -60,7 +50,7 @@
 					</div>
 					<div class="entry-image mt-5">
 						<img class="rounded" v-bind:src="`${recipe.image}`" alt="Blog Single">
-					</div><!-- .entry-image end -->
+					</div>
 
 					<div class="card border-0 shadow-sm" style="top: -100px;">
 						<div class="card-body px-4">
@@ -99,57 +89,55 @@
 											<i class="icon-line-printer"></i>
 										</a>
 									</div>
-									<ul class="list-unstyled list-ingredients bg-light p-4" v-for="ingredient in ingredients">
-										<li>{{ ingredient }}</li>
+									<ul class="list-unstyled bg-light p-4" v-for="ingredient in ingredients">
+										<li><label>{{ ingredient }}</label></li>
 									</ul>
                   
-									<div class="line line-sm"></div>
-
 									<div class="widget clearfix">
-										<h4>Tags <i class="icon-line-tag"></i></h4>
+										<h4>tags</h4>
 										<div class="tagcloud" v-for="tag in tags">
 											<router-link v-bind:to="`/tags/${tag.id}`">{{ tag.name }}</router-link>
-										</div>
-									</div>
+										</div><br>
 
-                  <div class="line line-sm"></div>
-									<h4>Share <i class="icon-share1"></i></h4>
-									<a href="#" class="social-icon si-small si-colored si-facebook" title="Facebook">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#" class="social-icon si-small si-colored si-twitter" title="Twitter">
-										<i class="icon-twitter"></i>
-										<i class="icon-twitter"></i>
-									</a>
-									<a href="#" class="social-icon si-small si-colored si-pinterest" title="Pinterest">
-										<i class="icon-pinterest"></i>
-										<i class="icon-pinterest"></i>
-									</a>
-									<a href="#" class="social-icon si-small si-colored si-instagram" title="Instagram">
-										<i class="icon-instagram"></i>
-										<i class="icon-instagram"></i>
-									</a>
-									<a href="#" class="social-icon si-small si-colored si-email3" title="Email">
-										<i class="icon-email3"></i>
-										<i class="icon-email3"></i>
-									</a>
+										<div class="line line-sm"></div>
+									
+										<h4>share</h4><br>
+										<a href="#" class="social-icon si-small si-light si-facebook" title="Facebook">
+											<i class="icon-facebook"></i>
+											<i class="icon-facebook"></i>
+										</a>
+										<a href="#" class="social-icon si-small si-light si-twitter" title="Twitter">
+											<i class="icon-twitter"></i>
+											<i class="icon-twitter"></i>
+										</a>
+										<a href="#" class="social-icon si-small si-light si-pinterest" title="Pinterest">
+											<i class="icon-pinterest"></i>
+											<i class="icon-pinterest"></i>
+										</a>
+										<a href="#" class="social-icon si-small si-light si-instagram" title="Instagram">
+											<i class="icon-instagram"></i>
+											<i class="icon-instagram"></i>
+										</a>
+										<a href="#" class="social-icon si-small si-light si-email3" title="Email">
+											<i class="icon-email3"></i>
+											<i class="icon-email3"></i>
+										</a>
+									</div>
 								</div>
 
 								<div class="col-lg-8 mt-5 mt-lg-0">
-									<h4>Directions</h4>
-									<ul v-for="direction in directions">
+									<h4 style="padding-bottom: 13px;">Directions</h4>
+									<ul v-for="direction in directions" style="padding-left: 20px;">
 										<input class="form-check-input" type="checkbox">
-                    <label class="strikethrough form-check-label nott ls0 mb-0">{{ direction }}</label>
+                    <label class="strikethrough form-check-label">{{ direction }}</label>
 									</ul>
 
 									<div class="line my-5"></div>
-
-									<h4 v-if="recipe.notes">note to self
-										<p class="list-unstyled list-ingredients bg-light p-4">
-											{{ recipe.notes }}
-										</p>
-									</h4>
+									
+									<div class="widget clearfix">
+										<h4 v-if="recipe.notes">note to self</h4><br>
+										<label class="bg-light p-4">{{ recipe.notes }}</label>
+									</div>
 									
 								</div>
 							</div>
@@ -158,8 +146,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- #content end -->
-	</div><!-- #wrapper end -->
+	</div>
 </template>
 
 <style>
