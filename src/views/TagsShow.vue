@@ -22,11 +22,11 @@
 
   </div> -->
 
-  <!-- Content============================================= -->
   <div id="wrapper" class="clearfix">
+
     <section id="content" class="bg-light">
       <div class="content-wrap">
-        <div class="container">
+        <div class="container clearfix">
 
           <button v-on:click="editTag(tag)" class="button button-circle button-border">edit tag</button>
           <dialog id="tag-details" class="mx-auto center">
@@ -51,16 +51,16 @@
 
               <div class="grid-inner">
                 <div class="portfolio-image">
-                  <img v-bind:src="`${recipe.image}`">
+                  <img v-bind:src="`${recipe.image}`" alt="Open Imagination">
                 </div>
 
                 <div class="portfolio-desc">
                   <h3><a v-bind:href="`/recipes/${recipe.id}`" class="color-underline stretched-link">{{ recipe.name }}</a></h3>
                 </div>
-
+                
               </div>
             </article>
-          </div>
+          </div><!-- #portfolio end -->
 
         </div>
       </div>
