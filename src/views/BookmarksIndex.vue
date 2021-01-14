@@ -1,30 +1,4 @@
 <template>
-  <!-- <div class="recipes">
-    <h2>Recipes</h2>
-    <div>
-      Search: <input v-model="titleFilter">
-    </div>
-
-    <router-link v-bind:to="`/recipes/new`">
-      <button>+ New Recipe</button>
-    </router-link>
-
-    <div class="card-deck">
-      <div class="card" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
-        <router-link v-bind:to="`/recipes/${recipe.id}`">
-          <img v-bind:src="`${recipe.image}`" class="card-img-top" v-bind:alt="recipe.name" />
-          <div class="card-body">
-            <h5 class="card-title">{{ recipe.name }}</h5>
-          </div>
-        </router-link>
-      </div>
-    </div>
-
-    <ul>
-      <li v-for="error in errors">{{ error }}</li>
-    </ul>
-  </div> -->
-
   <div id="wrapper" class="clearfix">
 
     <section id="content" class="bg-light">

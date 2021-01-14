@@ -59,10 +59,6 @@
                   <input type="password" v-model="passwordConfirmation" class="required sm-form-control border-form-control" placeholder="password confirmation" />
                 </div>
 
-                <!-- <div class="col-12 form-group">
-                  <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Your Message"></textarea>
-                </div> -->
-
                 <input type="submit" class="button button-circle button-border" value="sign up">
                 <router-link v-bind:to="`/`">
                   <button class="button button-circle button-border">cancel</button>
