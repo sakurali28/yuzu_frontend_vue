@@ -73,7 +73,7 @@
                 <article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons" v-for="recipe in filterBy(recipes, titleFilter, 'name', 'ingredients', 'tag')">
 
                   <div class="grid-inner">
-                    <div class="portfolio-image">
+                    <div v-if="recipe.image" class="portfolio-image">
                       <img v-bind:src="`${recipe.image}`">
                     </div>
 
